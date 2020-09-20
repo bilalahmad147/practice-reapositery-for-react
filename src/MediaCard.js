@@ -3,12 +3,12 @@ import "./App.css";
 
 const MediaCard = () => {
 
-    const [isDay, setDay] = useState();
+    let [isCount, setCount] = useState(10);
 
     return (
-        <div className={isDay ? "day":"night"}>
-            <h1>this is time of {isDay? "Morning" : "Night"}</h1>
-            <button onClick={()=> setDay(!isDay)}>Change Mood</button>
+        <div>
+            <h1>this is time of {isCount}</h1>
+            <button onClick={()=>{setCount(++isCount)}} >Increament</button>
         </div>
     )
 };
