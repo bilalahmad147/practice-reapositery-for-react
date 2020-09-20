@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import "./App.css";
 
-const MediaCard = ({title,body,imgUrl}) => {
+const MediaCard = () => {
+
+    const [isDay, setDay] = useState();
+
     return (
-        <div>
-            <h1>{title}</h1>
-            <p>{body}</p>
-            <img src={imgUrl} />
+        <div className={isDay ? "day":"night"}>
+            <h1>this is time of {isDay? "Morning" : "Night"}</h1>
+            <button onClick={()=> setDay(!isDay)}>Change Mood</button>
         </div>
     )
 };
