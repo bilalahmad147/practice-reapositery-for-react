@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./App.css";
 import CounterContext from './CounterContext';
 import CreateCounter from "./CreateCounter";
+import CountReducer from "./CountReducer";
 
 function App() {
 
@@ -11,6 +12,9 @@ function App() {
     <CreateCounter.Provider value={mood}>
       <div className="App">
         <CounterContext />
+        <br />
+        <br />
+        <CountReducer />
       </div>
     </CreateCounter.Provider>
   );
