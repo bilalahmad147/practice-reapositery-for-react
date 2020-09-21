@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
+import "./App.css";
 import CreateCounter from "./CreateCounter";
 
 const CounterContext = () => {
 
-    let counterValue = useContext(CreateCounter);
+    let [isMood, setMood] = useContext(CreateCounter);
     return(
-        <div>
-            <h1>this is mood value {counterValue}</h1>
-            <button onClick={()=>{counterValue[1](++counterValue[0])}}>Increament</button>
+        <div className={` Bright ${isMood} === "Bright" ? "Dark":"Bright"`}>
+            <h1>mood value is {isMood}</h1>
+            <button onClick={()=>{setMood(isMood === "Bright" ? "Dark" : "Bright")}}>Change MOOD</button>
         </div>
     )
 };

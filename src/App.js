@@ -5,10 +5,10 @@ import CreateCounter from "./CreateCounter";
 
 function App() {
 
-  let count = useState(0)
+  let mood = useState("Bright")
 
   return (
-    <CreateCounter.Provider value={count}>
+    <CreateCounter.Provider value={mood}>
       <div className="App">
         <CounterContext />
       </div>

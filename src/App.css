@@ -1,3 +1,11 @@
 .App{
     text-align: center;
 }
+.Bright{
+    color: crimson;
+    background-color: cyan;
+}
+.Dark{
+    color: yellow;
+    background-color: black;
+}
