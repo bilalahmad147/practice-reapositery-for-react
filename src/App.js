@@ -1,13 +1,16 @@
 import React from 'react';
 import "./App.css";
-import MediaCard from './MediaCard';
+import MoodContext from "./MoodContext";
+import MoodToogler from './MoodToogler';
 
 function App() {
 
   return (
-    <div className="App">
-      <MediaCard />
-    </div>
+    <MoodContext.Provider value="bright">
+      <div className="App">
+        <MoodToogler />
+      </div>
+    </MoodContext.Provider>
   );
 }
 
