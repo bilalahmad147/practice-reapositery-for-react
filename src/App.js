@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./App.css";
-import MoodContext from "./MoodContext";
-import MoodToogler from './MoodToogler';
+import CounterContext from './CounterContext';
+import CreateCounter from "./CreateCounter";
 
 function App() {
 
+  let count = useState(0)
+
   return (
-    <MoodContext.Provider value="bright">
+    <CreateCounter.Provider value={count}>
       <div className="App">
-        <MoodToogler />
+        <CounterContext />
       </div>
-    </MoodContext.Provider>
+    </CreateCounter.Provider>
   );
 }
 
