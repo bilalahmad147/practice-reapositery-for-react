@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../App.css';
+import {TransProvider} from "./ExpenseContext";
 
 const ExpenseDetail = () => {
+
+    let transactions = useContext(TransProvider);
+    console.log(transactions)
+
     return (
         <div className="expenseDetail">
             <h3>Income <br /> 0$ </h3>

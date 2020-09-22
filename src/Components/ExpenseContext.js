@@ -1,4 +1,5 @@
-import { createContext } from 'react';
+import React, { createContext, useReducer } from 'react';
+import ExpenseReducer from './ExpenseReducer';
 
 const ExpenseContext = createContext([
     { desc: 'book', amount: 20 },
@@ -9,17 +10,27 @@ const ExpenseContext = createContext([
 export default ExpenseContext;
 
 
-// export const transProvider = ({ }) => {
-//     let [state, dispatch] = useReducer(ExpenseReducer, ExpenseContext);
-//     function addExpense(transObj: any) {
-//         dispatch(
-//             {
-//                 type: "ADD",
-//                 payload: {
-//                     desc: transObj.desc,
-//                     amount: transObj.amount,
-//                 },
-//             }
-//         )
-//     }
-// }
+export const TransProvider = ({ children }) => {
+    let [state, dispatch] = useReducer(ExpenseReducer, ExpenseContext);
+
+    function addTrans(transObj) {
+        dispatch({
+            type: "ADD",
+            payload: {
+                desc: transObj.desc,
+                amount: transObj.amount,
+            }
+        })
+    }
+
+    return (
+        <ExpenseContext.Provider value={
+            {
+                transactions : state,
+                addTrans,
+            }
+        }>
+            {children}
+        </ExpenseContext.Provider>
+    )
+}

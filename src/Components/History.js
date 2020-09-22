@@ -11,8 +11,8 @@ const History = () => {
             <ul>
                 {HistoryContext.map((tranObj, ind) => {
                     return (
-                        <div>
-                            <h3 key={ind} className="historyList">
+                        <div key={ind}>
+                            <h3 className="historyList">
                                 <li>{tranObj.desc}</li>
                                 <li>{tranObj.amount}$</li>
                             </h3>
