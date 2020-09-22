@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import "./App.css";
-import CounterContext from './CounterContext';
-import CreateCounter from "./CreateCounter";
-import CountReducer from "./CountReducer";
+import Balance from "./Components/Balance";
+import ExpenseDetail from "./Components/ExpenseDetail";
+import History from "./Components/History";
+import Expense from "./Components/Expense";
 
 function App() {
 
   let mood = useState("Bright")
 
   return (
-    <CreateCounter.Provider value={mood}>
       <div className="App">
-        <CounterContext />
-        <br />
-        <br />
-        <CountReducer />
-      </div>
-    </CreateCounter.Provider>
+      <Balance />
+      <ExpenseDetail />
+      <h2>HISTORY</h2>
+      <History />
+      <Expense />
+    </div>
   );
 }
 
