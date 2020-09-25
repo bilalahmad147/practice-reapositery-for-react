@@ -1,13 +1,18 @@
 import React from 'react';
 import "./App.css";
-import Child from "./Child";
 
 function App() {
 
+  const childs = [{name: "bilal",age : 12},
+  {name: "zubi",age : 21},
+  {name: "ali",age : 5}];
+
   return (
     <div className="App">
-      <h1>hello world</h1>
-      <Child />
+      <ul>
+        {childs.map((item,ind) => {
+          return <li key={ind}>{item.name}</li> })}
+      </ul>
     </div>
   );
 }
