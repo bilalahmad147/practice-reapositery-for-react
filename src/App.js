@@ -1,19 +1,24 @@
 import React from 'react';
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  let initialValue = 0;
 
-  const childs = [{name: "bilal",age : 12},
-  {name: "zubi",age : 21},
-  {name: "ali",age : 5}];
+  const formatCount = () => {
+    return initialValue === 0 ? "Zero" : initialValue;
+  };
+
+  let classes = "badge m-2 badge-";
+  classes += (initialValue === 0) ? "warning" : "primary"
 
   return (
-    <div className="App">
-      <ul>
-        {childs.map((item,ind) => {
-          return <li key={ind}>{item.name}</li> })}
-      </ul>
-    </div>
+    <React.Fragment>
+      <span style={{fontSize : 20}} className={classes}>{formatCount()}</span>
+      <button className="btn btn-secondary btn-sm m-2">+</button>
+      <button className="btn btn-secondary btn-sm m-2">-</button>
+      <button className="btn btn-secondary btn-sm m-2">DELETE</button>
+    </React.Fragment>
   );
 }
 
