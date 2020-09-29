@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import CounterContext from './createContext';
 
-const Counter = () => {
+const Counter1 = () => {
 
   let Counter = useContext(CounterContext);
 
@@ -23,4 +23,4 @@ const Counter = () => {
   );
 }
 
-export default Counter;
+export default Counter1;
