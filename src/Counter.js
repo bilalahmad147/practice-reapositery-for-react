@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import CounterContext from './createContext';
 
 const Counter = () => {
-  let initialValue = 0;
-  let [isCount, setCount] = useState(initialValue);
+
+  let Counter = useContext(CounterContext);
+  let [isCount, setCount] = useState(Counter[0]);
 
   const formatCount = () => {
-    return isCount === initialValue ? "Zero" : isCount;
+    return isCount === Counter[0] ? "Zero" : isCount;
   };
 
   let classes = "badge m-2 badge-";
@@ -19,7 +21,7 @@ const Counter = () => {
       <span style={{ fontSize: 20, fontWeight: "bold" }} className={classes}>{formatCount()}</span>
       <button onClick={() => { setCount(++isCount) }} className="btn btn-secondary btn-sm m-2">INCREMENT</button>
       <button onClick={() => { setCount(--isCount) }} className="btn btn-secondary btn-sm m-2">DECREMENT</button>
-      <button onClick={() => { setCount(initialValue) }} className="btn btn-secondary btn-sm m-2">RESET</button>
+      <button onClick={() => { setCount(Counter[0]) }} className="btn btn-secondary btn-sm m-2">RESET</button>
     </React.Fragment>
   );
 }
