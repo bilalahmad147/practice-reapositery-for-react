@@ -1,15 +1,26 @@
 import React from 'react';
 import "./App.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Child from "./child";
 
+const App = () => {
 
-function App() {
+  const thingsList = [
+    {name : "watch" , price: 1000},
+    {name : "car" , price: 100000},
+    {name : "glass" , price: 100},
+    {name : "watch" , price: 1000},
+    {name : "car" , price: 100000},
+    {name : "glass" , price: 100},
+  ]
 
-  return (
-      <React.Fragment>
-        <h1>hello world</h1>
-      </React.Fragment>
-  );
-}
+  return(
+    <div className="App">
+      <h1>This is list for things</h1>
+      {thingsList.map((obj,ind)=>{
+        return <Child name={obj.name} price={obj.price} />
+      })}
+    </div>
+  )
+};
 
 export default App;
